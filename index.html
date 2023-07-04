@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rafaela</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    #button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: blue;
+      background-color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Você tem amigos homens?</h2>
+  
+  <div id="button-container">
+    <button id="yes-button" class="button" onclick="redirectToPage()">Nao</button>
+    <button id="no-button" class="button">Sim</button>
+  </div>
+
+  <script>
+    function redirectToPage() {
+      window.location.href = "https://youtu.be/a-zPMtc4mvY"; 
+    }
+
+    function getRandomPosition() {
+      var windowHeight = window.innerHeight;
+      var windowWidth = window.innerWidth;
+      var buttonHeight = document.getElementById('no-button').offsetHeight;
+      var buttonWidth = document.getElementById('no-button').offsetWidth;
+      
+      var randomX = Math.floor(Math.random() * (windowWidth - buttonWidth));
+      var randomY = Math.floor(Math.random() * (windowHeight - buttonHeight));
+      
+      return { x: randomX, y: randomY };
+    }
+    
+    document.getElementById('no-button').addEventListener('mouseover', function() {
+      var button = document.getElementById('no-button');
+      var newPosition = getRandomPosition();
+      
+      button.style.position = 'absolute';
+      button.style.left = newPosition.x + 'px';
+      button.style.top = newPosition.y + 'px';
+    });
+  </script>
+</body>
+</html>
